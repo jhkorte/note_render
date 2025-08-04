@@ -1,5 +1,5 @@
 {
-  "name": "firsttest",
+  "name": "notes_backend",
   "version": "1.0.0",
   "description": "testing",
   "license": "ISC",
@@ -9,7 +9,9 @@
   "scripts": {
     "start": "node index.js",
     "dev": "node --watch index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:ui": "rm -rf dist &&  cd ../../kokoelma_render_test/notes_frontend/ && npm run build && cp -r dist ../../node/notes_backend",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
   },
   "dependencies": {
     "cors": "^2.8.5",
